@@ -1,16 +1,23 @@
-import { loginAction } from '@/features/UserLogin/lib/actions';
+'use client';
+
+import { useUserStore } from '@/entities/User';
+import { loginAction } from '@/features/UserLogin';
 import { ErrorBox } from '@/shared/ui';
 import { useMutation } from '@tanstack/react-query';
 import { Button, Form, Input, Modal } from 'antd';
 import { useCallback } from 'react';
 
-export const LoginModal = ({ isOpen, onCancel }: {
+export const LoginModal = ({ isOpen, onCancel, setIsOpen }: {
   isOpen: boolean;
   onCancel: Function;
+  setIsOpen: Function;
 }) => {
+  const setAuthUser = useUserStore((state) => state.setUser);
+
   const { mutate, isLoading, error, isError } = useMutation(loginAction, {
     onSuccess: (resData) => {
-      console.log(resData);
+      setAuthUser(resData);
+      setIsOpen(false);
     },
   });
 
@@ -21,7 +28,7 @@ export const LoginModal = ({ isOpen, onCancel }: {
     };
 
     mutate(user);
-  }, []);
+  }, [mutate]);
 
   return (
     <Modal
@@ -49,7 +56,7 @@ export const LoginModal = ({ isOpen, onCancel }: {
           <Input.Password />
         </Form.Item>
         {isError && error && <Form.Item><ErrorBox errorMessage={error.message} /></Form.Item>}
-        <Form.Item style={{ marginBottom: 0 }}>
+        <Form.Item>
           <Button
             loading={isLoading}
             type="primary"

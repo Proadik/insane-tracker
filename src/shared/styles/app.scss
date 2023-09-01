@@ -3,3 +3,30 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  min-height: 100vh;
+}
+
+.ant-card .ant-card-body {
+  padding: 24px 24px 15px 24px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.ant-divider {
+  margin: 10px 0 10px 0;
+}
+
+// form
+.ant-form {
+  .ant-form-item:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+// statistics
+.ant-statistic-content {
+  font-size: 14px;
+}
