@@ -2,6 +2,7 @@ export enum TaskStatus {
   Active = 'active',
   Closed = 'closed',
   Review = 'review',
+  Waiting = 'waiting',
 }
 
 export enum TaskPriority {
@@ -27,4 +28,5 @@ export interface Task {
   title: string;
   user_id: string;
   priority?: TaskPriority;
+  started_at?: string;
 }

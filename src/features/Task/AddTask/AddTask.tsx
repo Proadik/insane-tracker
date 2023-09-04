@@ -1,10 +1,8 @@
-'use client';
-
-import { TaskDeadlineDefaults, TaskPriority } from '@/entities/Task';
 import { pluralize } from '@/shared';
 import { PlusOutlined } from '@ant-design/icons';
 import { Button, Divider, Form, Input, Modal, Select, Space } from 'antd';
 import { useCallback, useMemo, useState } from 'react';
+import { TaskDeadlineDefaults, TaskPriority } from '@/entities';
 
 export const AddTask = () => {
   const [isOpen, setIsOpen] = useState(false);

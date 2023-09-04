@@ -1,3 +1,3 @@
 export * from './ui/LoginModal/LoginModal';
 export * from './ui/ProfileInfo/ProfileInfo';
-export * from './lib/index';
+export * from './lib/store';

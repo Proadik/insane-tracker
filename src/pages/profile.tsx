@@ -1,5 +1,5 @@
-import { useUserStore } from '@/entities/User/lib';
-import { ProfileInfo } from '@/entities/User/ui/ProfileInfo/ProfileInfo';
+import { ProfileInfo } from '@/entities';
+import { useUserStore } from '@/entities/User/lib/store';
 import { Typography } from 'antd';
 import { useRouter } from 'next/navigation';
 

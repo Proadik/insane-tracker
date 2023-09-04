@@ -1,5 +1,3 @@
-'use client';
-
 import { Navbar } from '@/shared/ui';
 import { UISider } from '@/shared/ui/UISider/UISider';
 import { QueryClient } from '@tanstack/query-core';

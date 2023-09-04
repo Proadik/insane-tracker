@@ -5,9 +5,8 @@
 }
 
 .root {
-  display: flex;
-  flex: 1;
-  align-items: stretch;
+  display: grid;
+  grid-template-columns: 200px 1fr;
 }
 
 .content {

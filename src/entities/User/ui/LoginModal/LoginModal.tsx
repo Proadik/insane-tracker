@@ -1,5 +1,3 @@
-'use client';
-
 import { useUserStore } from '@/entities/User';
 import { loginAction } from '@/features/UserLogin';
 import { ErrorBox } from '@/shared/ui';

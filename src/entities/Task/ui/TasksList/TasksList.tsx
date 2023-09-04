@@ -1,47 +1,25 @@
-'use client';
-
-import { Task } from '@/entities/Task';
-import { Card, Col, Divider, Row, Space, Statistic, Tag, Typography } from 'antd';
-import { DateTime } from 'luxon';
+import { Task } from '@/entities';
+import { TaskItem } from '@/entities/Task/ui/TaskItem/TaskItem';
+import { Col, Row } from 'antd';
 import { useCallback } from 'react';
-import styles from './TasksList.module.scss';
 
-const { Countdown } = Statistic;
-
-export const TasksList = ({ tasks, handleTask }: {
+type TasksListProps = {
   handleTask: Function;
   tasks: Task[];
-}) => {
+}
+
+export const TasksList = ({ tasks, handleTask }: TasksListProps) => {
   const handleDetails = useCallback((task: Task) => {
     handleTask(task);
   }, [handleTask]);
 
   return (
     <Row gutter={[16, 16]}>
-      {tasks.map((task) => {
-        const taskDeadline = DateTime.fromISO(task.deadline).toMillis();
-
-        return (
-          <Col flex={1} key={task.id} span={8}>
-            <Card onClick={() => handleDetails(task)} hoverable className={styles.card} bordered>
-              <div className={styles.cardTop}>
-                <Typography.Title level={5}>{task.title}</Typography.Title>
-              </div>
-              <div>
-                <Divider />
-                <Space align="center" className={styles.cardSpace}>
-                  <Tag color="green">{task.status}</Tag>
-                  <Countdown
-                    className={styles.countdown}
-                    format="HH:mm:ss"
-                    value={taskDeadline}
-                  />
-                </Space>
-              </div>
-            </Card>
-          </Col>
-        );
-      })}
+      {tasks.map((task) => (
+        <Col flex={1} key={task.id} span={8}>
+          <TaskItem task={task} onClick={handleDetails} />
+        </Col>
+      ))}
     </Row>
   );
 };

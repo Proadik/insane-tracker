@@ -1,4 +1,4 @@
-import { User } from '@/entities/User/lib';
+import { User } from '@/entities/User/lib/store';
 import { List } from 'antd';
 
 export const ProfileInfo = ({ info, except }: {

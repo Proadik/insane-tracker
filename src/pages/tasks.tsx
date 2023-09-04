@@ -1,21 +1,11 @@
-import { Task, TaskPriority, TaskStatus, TasksList } from '@/entities/Task';
 import { AddTask, ShowTaskDetails } from '@/features';
 import { Card } from 'antd';
 import { useCallback, useState } from 'react';
+import { Task, TaskPriority, TaskStatus, TasksList } from '@/entities';
 
 const TasksPage = () => {
   const [selectedTask, setSelectedTask] = useState<Task>(null);
   const tasks: Task[] = [
-    {
-      id: 1,
-      title: 'New render type Array with string, number, json in settings modal',
-      user_id: '15',
-      description: 'Description - Do something nice for someone I care about',
-      created_at: '2023-09-01T08:30:00',
-      deadline: '2023-09-02T08:30:00',
-      status: TaskStatus.Active,
-      priority: TaskPriority.Medium,
-    },
     {
       id: 2,
       title: 'Fix Datatransfer - dublicates datacards / dataforms',
@@ -25,6 +15,17 @@ const TasksPage = () => {
       deadline: '2023-09-04T22:30:00',
       status: TaskStatus.Active,
       priority: TaskPriority.High,
+      started_at: '2023-09-03T15:58:00',
+    },
+    {
+      id: 1,
+      title: 'New render type Array with string, number, json in settings modal',
+      user_id: '15',
+      description: 'Description - Do something nice for someone I care about',
+      created_at: '2023-09-01T08:30:00',
+      deadline: '2023-09-02T08:30:00',
+      status: TaskStatus.Waiting,
+      priority: TaskPriority.Medium,
     },
     {
       id: 3,
@@ -33,7 +34,7 @@ const TasksPage = () => {
       description: 'Node.js can be used very well with relational databases and SQLite is no exception. In this post, we will build a simple REST API for Quotes step-by-step with SQLite and Node.js using the Express Js framework step-by-step.',
       created_at: '2023-09-01T21:30:00',
       deadline: '2023-09-08T21:30:00',
-      status: TaskStatus.Active,
+      status: TaskStatus.Closed,
       priority: TaskPriority.Low,
     },
   ];

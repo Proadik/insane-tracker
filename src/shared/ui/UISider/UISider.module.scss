@@ -1,4 +1,9 @@
 .root {
-  width: 200px;
-  height: 100%;
+  padding-top: 25px;
+
+  li {
+    margin: 0 !important;
+    width: 100% !important;
+    border-radius: 0 !important;
+  }
 }
